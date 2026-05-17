@@ -22,6 +22,22 @@ The `docker-compose.yml` defines the following service:
 - `./data:/data` - Persistent configuration and certificate data
 - `./letsencrypt:/etc/letsencrypt` - Let's Encrypt certificate storage
 
+```bash
+services:
+
+  app:
+    image: 'docker.io/jc21/nginx-proxy-manager:latest'
+    container_name: 'nginx'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+```
+
 ## Usage
 
 ### Starting the Service
