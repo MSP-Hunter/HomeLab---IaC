@@ -27,6 +27,21 @@ A self-hosted password management solution with secure proxy routing:
 3. Run: `docker-compose up -d`
 4. Access Vaultwarden through Nginx proxy
 
+```bash
+services:
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      DOMAIN: "https://vw.domain.tld"
+    volumes:
+      - ./vault/vw-data/:/data/
+    ports:
+      - 8005:80
+```
+
 ## Security Features
 
 - SSL/TLS encryption
