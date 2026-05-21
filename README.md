@@ -103,20 +103,6 @@ This project utilizes:
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a Pull Request
-
-Please ensure your contributions follow the project's conventions and include appropriate documentation.
-
----
-
 ## ⚠️ Disclaimer
 
 This homelab infrastructure is provided as-is for educational and personal use. Ensure you:
