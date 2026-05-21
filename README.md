@@ -81,18 +81,11 @@ The homelab infrastructure includes:
 
 ```
 HomeLab---IaC/
-├── docs/                    # Documentation
-│   ├── architecture.md      # Architecture overview
-│   ├── setup.md             # Setup instructions
-│   └── troubleshooting.md   # Common issues and solutions
-├── infrastructure/          # Infrastructure code
-│   ├── network/             # Network configuration
-│   ├── compute/             # VM and compute resources
-│   ├── storage/             # Storage infrastructure
-│   └── monitoring/          # Monitoring and observability
 ├── applications/            # Application deployments
-├── scripts/                 # Automation scripts
-├── SETUP.md                 # Quick start guide
+│   ├── Personal Creations/             # Coded solutions
+│   ├── Health checks/             # Monitoring and fixes
+│   ├── Media-portal/             # Enduser facing media services
+│   └── Secure-vault/          # Security and Services solutions
 ├── README.md                # This file
 └── .gitignore               # Git ignore rules
 ```
