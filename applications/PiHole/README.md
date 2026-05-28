@@ -148,12 +148,6 @@ docker exec pihole pihole -g
 
 Individual telemetry/tracking domains blocked manually via Pi-hole's blacklist:
 
-| Domain | Reason |
-|---|---|
-| `mobile.logs.roku.com` | Roku device telemetry |
-| `logs.roku.com` | Roku general logging |
-| `scribe.roku.com` | Roku event tracking |
-
 **General pattern — safe to block:**
 
 | Subdomain Pattern | Type |
