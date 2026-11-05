@@ -1,0 +1,28 @@
+name: Deploy to App Container
+on:
+  push:
+    branches: [ main ] # Or 'master', depending on your repo
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 192.168.0.161       # e.g., 192.168.1.50
+          username: deployer             # The user you just created
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Change this path to wherever your docker-compose.yml lives on the App Container
+            cd /opt/compose
+            
+            # If the app container pulls code from this repo, you may need to uncomment the next line:
+            # git pull
+            
+            # Update containers
+            docker compose pull
+            docker compose up -d --remove-orphans
+            
+            # Optional: Clean up old images to save disk space
+            docker image prune -f
