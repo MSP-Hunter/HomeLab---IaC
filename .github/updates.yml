@@ -1,7 +1,11 @@
-name: Deploy to App Container
+name: Scheduled Docker Update
+
 on:
   push:
-    branches: [ main ] # Or 'master', depending on your repo
+    branches: [ main ] 
+  schedule:
+    - cron: '0 20 * * 4'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -10,19 +14,19 @@ jobs:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 192.168.0.161       # e.g., 192.168.1.50
-          username: deployer             # The user you just created
+          host: 192.168.0.161
+          username: deployer
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Change this path to wherever your docker-compose.yml lives on the App Container
+            # Make sure this path is correct!
             cd /opt/compose
             
-            # If the app container pulls code from this repo, you may need to uncomment the next line:
+            # Optional: If your compose files are in a git repo, pull the latest changes
             # git pull
             
             # Update containers
             docker compose pull
             docker compose up -d --remove-orphans
             
-            # Optional: Clean up old images to save disk space
+            # Clean up old images to save disk space
             docker image prune -f
